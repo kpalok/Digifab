@@ -1,4 +1,6 @@
-## Onko nyt parempi?
+## Pelkästään readme näkyy tässä.
+
+Vastaus Joonan kysymykseen onkin siis: Ei.
 
 Oikein kiva ja yksikertainen ja siisti ja kompakti ynnä muuta.
 
