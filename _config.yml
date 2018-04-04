@@ -1,3 +1,5 @@
 theme: jekyll-theme-minimal
-title: Catfood dispenser homepage!
-description: Here we will (try to) post project documentation.
+title: Cat food dispenser homepage!
+
+headers:
+  My-header: my-value
