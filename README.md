@@ -6,8 +6,8 @@ One of our members who owns a cat had an idea about an automated cat food dispen
 ---
 
 ## Sketches
-![alt text](https://raw.githubusercontent.com/kpalok/Digifab/master/Images/Scetch1.jpg "Scetch One")
-![alt text](https://raw.githubusercontent.com/kpalok/Digifab/master/Images/Scetch2.jpg "Scetch Two")
+![alt text](https://raw.githubusercontent.com/kpalok/Digifab/master/Images/Sketch1.jpg "Scetch One")
+![alt text](https://raw.githubusercontent.com/kpalok/Digifab/master/Images/Sketch2.jpg "Scetch Two")
 
 ## Bill of materials
 
