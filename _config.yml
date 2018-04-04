@@ -1,3 +1,7 @@
 theme: jekyll-theme-minimal
 title: Catfood dispenser homepage!
 description: Here we will (try to) post project documentation.
+
+pages_list:
+  About: '/README'
+  Documentation: '/Documentation
