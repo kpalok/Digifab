@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
 title: Cat food dispenser homepage!
 
-headers:
-  My-header: my-value
+pages_list:
+  Documentation: "/_posts"
