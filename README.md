@@ -1,9 +1,9 @@
 ## Introductory report
-### Remote controlled catfood dispenser.
+### Remote controlled cat food dispenser.
 
 One of our members who owns a cat had an idea about an automated cat food dispenser, which was our first decent idea so we decided to stick with it. The concept is to have a food dispenser that can have an user-interface either for the cat or the owner. For the cat there is an option to have a large pushbutton that dispenses one serving, and the primary UI for the owner is a phone app that controlls the dispenser via bluetooth.
 
-
+![alt text](https://github.com/kpalok/Digifab/blob/master/Scetch.pdf "Scetch One")
 
 ## Bill of materials
 
