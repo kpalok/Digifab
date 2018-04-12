@@ -5,6 +5,11 @@ One of our members who owns a cat had an idea about an automated cat food dispen
 
 ---
 
+## Diary report
+
+[Week 3]({{ site.baseurl }}{% post_url 2018-04-12-Weekly-report.md %})
+
+
 ## Sketches
 ![Picture missing](https://raw.githubusercontent.com/kpalok/Digifab/master/Images/Sketch1.jpg "Scetch One")
 ![Picture missing](https://raw.githubusercontent.com/kpalok/Digifab/master/Images/Sketch2.jpg "Scetch Two")
