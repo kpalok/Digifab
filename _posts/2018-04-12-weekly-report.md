@@ -1,5 +1,7 @@
 ---
-title: "Weekly report - Week 3"
+title: "Week Three"
 ---
 
-## Under construction
+# Week Three
+
+Things are being done, and after those things have been done, they will be reported on this page, which in itself is one thing that has been done. 
