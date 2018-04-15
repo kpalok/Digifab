@@ -13,3 +13,6 @@ I started to develop an Android application that could communicate with the ardu
 
 ### Ville:
 {% include youtubePlayer.html id="7bLnPL96tmc?rel=0&amp;showinfo=0" %}
+
+### Juho:
+Did some box desings for laser cutting.
