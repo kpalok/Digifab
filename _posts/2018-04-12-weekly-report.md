@@ -12,7 +12,7 @@ I started to develop an Android application that could communicate with the ardu
 ![Image missing](https://raw.githubusercontent.com/kpalok/Digifab/master/Images/UiProto.JPG "Early Ui prototype")
 
 ### Ville:
-{% include youtubePlayer.html id="7bLnPL96tmc?rel=0&amp;showinfo=0" %}
+{% include youtubePlayer.html id="X18Yz-xBP5g?rel=0&amp;showinfo=0" %}
 
 ### Juho:
 Did some box desings for laser cutting.
