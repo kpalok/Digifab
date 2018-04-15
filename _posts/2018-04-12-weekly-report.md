@@ -16,5 +16,7 @@ I started my week by familiriazing myself with GitHub Pages and Jekyll in order 
 
 {% include youtubePlayer.html id="X18Yz-xBP5g?rel=0&amp;showinfo=0" %}
 
+{% include conceptModelV1.html %}
+
 ### Juho:
 Did some box desings for laser cutting.
