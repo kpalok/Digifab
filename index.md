@@ -20,9 +20,9 @@ One of our members who owns a cat had an idea about an automated cat food dispen
 Component | Part number | Amount
 --- | --- | ---
 Arduino Uno | 1050-1024-ND | 1
-Servo | 	? | 1
+Micro servo motor | 2214601	 | 1
 **HC-05 Bluetooth Module** | 	LYSB01A09HSBE-ELECTRNCS | 1
 Battery cable | 	BS6I-MC-ND | 1
 Batery holder | 	BH26AASF-ND | 1
-1 kilo-ohm resistor | | 1
-2 kilo-ohm resistor | | 1
+1 kilo-ohm resistor | | 3
+
