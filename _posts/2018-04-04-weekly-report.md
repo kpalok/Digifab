@@ -13,3 +13,6 @@ In the meeting I desinged the example board with Eagle. It turned out to be a bi
 
 ### Kalle:
 Most of my efforts went into learning how to customize our documentation website with Markdown and Jekyll. I had some trouble with links to other pages and decided to change our sites Jekyll theme in the process.
+
+### Ville:
+During the meeting I drew a few sketches of our design. Most of them are ideas how to implement the mechanism which serves the food into the bowl.
