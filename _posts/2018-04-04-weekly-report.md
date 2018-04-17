@@ -1,4 +1,8 @@
-# Week Three
+---
+title: "Week Two"
+---
+
+# Week Two
 
 We met up to design the example board for milling and to finish the introductory report and clarified our concept.
 
