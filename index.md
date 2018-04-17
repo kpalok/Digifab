@@ -8,8 +8,9 @@ One of our members who owns a cat had an idea about an automated cat food dispen
 ## Diary
 
 - [Week 1](_posts/2018-03-26-weekly-report.md)
-- [Week 3](_posts/2018-04-04-weekly-report.md)
-- [Week 4](_posts/2018-04-12-weekly-report.md)
+- [Week 2](_posts/2018-04-04-weekly-report.md)
+- [Week 3](_posts/2018-04-12-weekly-report.md)
+- [Week 4](_posts/2018-04-16-weekly-report.md)
 
 ## Sketches
 ![Picture missing](https://raw.githubusercontent.com/kpalok/Digifab/master/Images/Sketch1.jpg "Scetch One")
@@ -25,4 +26,3 @@ Micro servo motor | 2214601	 | 1
 Battery cable | 	BS6I-MC-ND | 1
 Batery holder | 	BH26AASF-ND | 1
 1 kilo-ohm resistor | | 3
-
