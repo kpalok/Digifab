@@ -9,8 +9,8 @@
         android:text="No data"
         android:id="@+id/txtFeedLog"
         android:gravity="center"
-        android:layout_marginTop="80sp"
-        android:layout_marginBottom="20sp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp" />
@@ -20,13 +20,20 @@
         android:layout_height="80sp"
         android:id="@+id/btnMain"
         android:clickable="true" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
     <TextView
         android:text="Bluetooth not connected"
         android:id="@+id/txtBtLog"
         android:gravity="center"
-        android:layout_marginTop="215.5sp"
-        android:layout_marginBottom="0px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp" />
+        android:textSize="14sp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="25dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
