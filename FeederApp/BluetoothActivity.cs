@@ -13,27 +13,6 @@ namespace FeederApp
     {
         static int REQUEST_ENABLE_BT = 1;
         
-
-        public abstract class BaseThread
-        {
-            private Thread _thread;
-
-            protected BaseThread()
-            {
-                _thread = new Thread(new ThreadStart(this.RunThread));
-            }
-
-            // Thread methods / properties
-            public void Start() => _thread.Start();
-            public void Join() => _thread.Join();
-            public bool IsAlive => _thread.IsAlive;
-
-            // Override in base class
-            public abstract void RunThread();
-        }
-
-
-
         [BroadcastReceiver(Enabled = true, Exported = false)]
         public class MyReceiver : BroadcastReceiver
         {
@@ -67,10 +46,9 @@ namespace FeederApp
             }
         }
 
-
-        public class AcceptThread : BaseThread
+        public class AcceptThread
         {
-            private BluetoothServerSocket mmServerSocket;
+            public BluetoothServerSocket mmServerSocket;
             private Context context;
 
             public AcceptThread()
@@ -88,36 +66,6 @@ namespace FeederApp
                     Toast.MakeText(context, "Socket's listen() method failed", ToastLength.Long).Show();
                 }
                 mmServerSocket = tmp;
-            }
-
-            public override void RunThread()
-            {
-                BluetoothSocket socket = null;
-                // Keep listening until exception occurs or a socket is returned.
-                while (true)
-                {
-                    try
-                    {
-                        socket = mmServerSocket.Accept();
-                    }
-                    catch (IOException)
-                    {
-                        Toast.MakeText(context, "Socket's accept() method failed", ToastLength.Long).Show();
-                        break;
-                    }
-
-
-                    if (socket != null)
-                    {
-                        FdBluetoothService.ConnectedThread
-                        // A connection was accepted. Perform work associated with
-                        // the connection in a separate thread.
-                        Feeder = new FdBluetoothService.ConnectedThread(socket);
-                        Feeder.RunThread();
-                        mmServerSocket.Close();
-                        break;
-                    }
-                }
             }
 
             public void Cancel()
