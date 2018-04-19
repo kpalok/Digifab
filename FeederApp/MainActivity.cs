@@ -11,8 +11,6 @@ using Java.IO;
 
 namespace FeederApp
 {   
-
-
     [Activity(Label = "FeederApp", MainLauncher = true)]
     public class MainActivity : Activity
     {
@@ -94,8 +92,6 @@ namespace FeederApp
                 System.IO.Stream tmpIn = null;
                 System.IO.Stream tmpOut = null;
 
-                // Get the input and output streams; using temp objects because
-                // member streams are final.
                 try
                 {
                     tmpIn = socket.InputStream;
@@ -142,18 +138,10 @@ namespace FeederApp
             }
         }
 
-
-
-
         protected override void OnDestroy()
         {
             base.OnDestroy();
-
             UnregisterReceiver(BtReceiver);
-
-        }
-        
+        }  
     }
-
 }
-
