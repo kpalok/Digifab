@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+/*/
+using System;
 using Android.Bluetooth;
 using Android.App;
 using Android.Content;
@@ -11,7 +13,6 @@ namespace FeederApp
 {
     public class BluetoothActivity : Activity
     {
-        static int REQUEST_ENABLE_BT = 1;
         
         [BroadcastReceiver(Enabled = true, Exported = false)]
         public class MyReceiver : BroadcastReceiver
@@ -27,21 +28,6 @@ namespace FeederApp
                     BluetoothDevice device = (BluetoothDevice)intent.GetParcelableExtra(BluetoothDevice.ExtraDevice);
                     Toast.MakeText(context, device.Name, ToastLength.Short).Show();
                     BluetoothAdapter.DefaultAdapter.CancelDiscovery();      
-                }
-            }
-        }
-
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-        {
-            base.OnActivityResult(requestCode, resultCode, data);
-
-            TextView txtBtLog = FindViewById<TextView>(Resource.Id.txtBtLog);
-
-            if (requestCode == REQUEST_ENABLE_BT)
-            {
-                if (resultCode == Result.Ok)
-                {
-                    txtBtLog.Text = "Bluetooth enabled.";
                 }
             }
         }
@@ -86,7 +72,7 @@ namespace FeederApp
     }
 
 }
-
+/*/
 
 
 
