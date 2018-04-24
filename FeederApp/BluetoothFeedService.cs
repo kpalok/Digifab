@@ -12,11 +12,13 @@ namespace FeederApp
     class BluetoothFeedService
     {
         const string TAG = "BluetoothFeedService";
+        ConnectThread connectThread;
         ConnectedThread connectedThread;
         int state;
 
         public const int STATE_NONE = 0;
-        public const int STATE_CONNECTED = 1;
+        public const int STATE_CONNECTING = 1;
+        public const int STATE_CONNECTED = 2;
 
         public BluetoothFeedService()
         {
@@ -40,6 +42,43 @@ namespace FeederApp
             state = STATE_NONE;
         }
 
+        public void Connect(BluetoothDevice device)
+        {
+            if (state == STATE_CONNECTING)
+            {
+                if (connectThread != null)
+                {
+                    connectThread.Cancel();
+                    connectThread = null;
+                }
+            }
+
+            // Cancel any thread currently running a connection
+            if (connectedThread != null)
+            {
+                connectedThread.Cancel();
+                connectedThread = null;
+            }
+
+            // Start the thread to connect with the given device
+            connectThread = new ConnectThread(device, this);
+            connectThread.Start();
+        }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void Connected(BluetoothSocket socket, BluetoothDevice device)
+        {
+            // Cancel the thread that completed the connection
+            if (connectThread != null)
+            {
+                connectThread.Cancel();
+                connectThread = null;
+            }
+
+            connectedThread = new ConnectedThread(socket, this);
+            connectedThread.Start();
+        }
+
         public void Write(byte[] @out)
         {
             // Create temporary object
@@ -55,6 +94,71 @@ namespace FeederApp
             }
             // Perform the write unsynchronized
             r.Write(@out);
+        }
+
+        protected class ConnectThread : Thread
+        {
+            BluetoothSocket socket;
+            BluetoothDevice device;
+            BluetoothFeedService service;
+
+            public ConnectThread(BluetoothDevice device, BluetoothFeedService service)
+            {
+                this.device = device;
+                this.service = service;
+                BluetoothSocket tmp = null;
+                try
+                {
+                    tmp = device.CreateRfcommSocketToServiceRecord(UUID.FromString("8eeca70a-b46c-4631-b89e-5fd0b11c0747"));
+
+                }
+                catch (Java.IO.IOException e)
+                {
+                    Log.Error(TAG, "create() failed", e);
+                }
+                socket = tmp;
+                service.state = STATE_CONNECTING;
+            }
+
+            public override void Run()
+            {
+                base.Run();
+                try
+                {
+                    socket.Connect();
+                }
+                catch (Java.IO.IOException)
+                {
+                    // Close the socket
+                    try
+                    {
+                        socket.Close();
+                    }
+                    catch (Java.IO.IOException e2)
+                    {
+                        Log.Error(TAG, "unable to close() socket during connection failure.", e2);
+                    }
+                    return;
+                }
+
+                lock (this)
+                {
+                    service.connectThread = null;
+                }
+                service.Connected(socket, device);
+            }
+
+            public void Cancel()
+            {
+                try
+                {
+                    socket.Close();
+                }
+                catch (Java.IO.IOException e)
+                {
+                    Log.Error(TAG, "close() of connect socket failed", e);
+                }
+            }
         }
 
         class ConnectedThread : Thread

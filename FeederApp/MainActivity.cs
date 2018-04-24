@@ -5,6 +5,8 @@ using Android.Bluetooth;
 using Android.Content;
 using Android.Views;
 using System;
+using System.Linq;
+using Java.Util;
 
 namespace FeederApp
 {   
@@ -15,7 +17,6 @@ namespace FeederApp
         byte[] FEED = new byte[] { byte.MaxValue  };
         byte[] CLEAR = new byte[] { 0b0 };
         private BluetoothFeedService service = new BluetoothFeedService();
-        private BroadcastReceiver BtReceiver = new BluetoothActivity.MyReceiver();
         BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -23,7 +24,7 @@ namespace FeederApp
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Main);
-            Button button = FindViewById<Button>(Resource.Id.btnMain);
+
             if (adapter == null)
             {
 
@@ -36,6 +37,20 @@ namespace FeederApp
             }
             else
                 SetBtText("Bluetooth enabled.");
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            if (adapter != null)
+            {
+                BluetoothDevice device = (from bd in adapter.BondedDevices
+                                          where bd.Name == "JBL-Joona"
+                                          select bd).FirstOrDefault();
+                if (device == null)
+                    SetBtText("Device not found");
+                service.Connect(device);
+            }
         }
 
         [Java.Interop.Export("ButtonClick")]
