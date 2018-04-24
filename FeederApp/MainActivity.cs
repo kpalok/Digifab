@@ -49,7 +49,11 @@ namespace FeederApp
                                           select bd).FirstOrDefault();
                 if (device == null)
                     SetBtText("Device not found");
-                service.Connect(device);
+                else
+                {
+                    SetBtText("Connected to: " + device.Name);
+                    service.Connect(device);
+                }
             }
         }
 
