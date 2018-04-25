@@ -21,9 +21,13 @@ namespace FeederApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             SetContentView(Resource.Layout.Main);
 
+            if (savedInstanceState != null)
+            {
+                string LastFed = savedInstanceState.GetString("Last fed");
+                SetFeedText(LastFed);
+            }
             if (adapter == null)
             {
 
@@ -38,6 +42,16 @@ namespace FeederApp
                 SetBtText("Bluetooth enabled.");
         }
 
+        protected override void OnRestoreInstanceState(Bundle savedInstanceState)
+        {
+            base.OnRestoreInstanceState(savedInstanceState);
+            if (savedInstanceState != null)
+            {
+                string LastFed = savedInstanceState.GetString("Last fed");
+                SetFeedText(LastFed);
+            }
+        }
+
         [Java.Interop.Export("ButtonClick")]
         public void ButtonClick(View v)
         {
@@ -46,9 +60,9 @@ namespace FeederApp
             {
                 if (adapter == null)
                 {
-                    SetFeedText("Please connect to your device!");
+                    SetFeedText("No bluetooth support!");
                 }
-                else if (adapter.IsEnabled)
+                else if (service.GetState() == BluetoothFeedService.STATE_CONNECTED)
                 {
                     service.Write(FEED);
                     SetFeedText("Last fed: " + DateTime.Now.ToString("dd/MM hh:mm"));
@@ -102,6 +116,18 @@ namespace FeederApp
         {
             TextView txtFeedLog = FindViewById<TextView>(Resource.Id.txtFeedLog);
             txtFeedLog.Text = txt;
+        }
+
+        public string GetFeedText()
+        {
+            TextView txtFeedLog = FindViewById<TextView>(Resource.Id.txtFeedLog);
+            return txtFeedLog.Text;
+        }
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            outState.PutString("Last fed", GetFeedText());
+            base.OnSaveInstanceState(outState);
         }
     }
 }
