@@ -9,7 +9,7 @@
         android:text="Last fed:"
         android:id="@+id/txtFeedLog"
         android:gravity="center"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +20,18 @@
         android:layout_height="80sp"
         android:id="@+id/btnMain"
         android:onClick="ButtonClick" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText1"
+        android:text="Set device name here"
+        android:gravity="center" />
+    <Button
+        android:text="Search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonSearch"
+        android:onClick="ButtonClick" />
     <TextView
         android:text="Bluetooth not connected"
         android:id="@+id/txtBtLog"
@@ -28,5 +40,5 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="100dp" />
+        android:layout_marginTop="40dp" />
 </LinearLayout>

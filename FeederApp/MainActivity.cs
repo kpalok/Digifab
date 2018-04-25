@@ -6,7 +6,6 @@ using Android.Content;
 using Android.Views;
 using System;
 using System.Linq;
-using Android.Util;
 
 namespace FeederApp
 {   
@@ -17,7 +16,7 @@ namespace FeederApp
         byte[] FEED = new byte[] { byte.MaxValue  };
         byte[] CLEAR = new byte[] { 0b0 };
         private BluetoothFeedService service = new BluetoothFeedService();
-        BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
+        private BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,6 +26,7 @@ namespace FeederApp
 
             if (adapter == null)
             {
+
                 SetBtText("Device doesn't support bluetooth!");
             }
             else if (!adapter.IsEnabled)
@@ -38,26 +38,44 @@ namespace FeederApp
                 SetBtText("Bluetooth enabled.");
         }
 
-        protected override void OnStart()
-        {
-            base.OnStart();
-            FindDevice();
-        }
-
         [Java.Interop.Export("ButtonClick")]
         public void ButtonClick(View v)
         {
             Button button = (Button)v;
-            if (adapter == null)
+            if (button.Text == "Feed")
             {
-                SetFeedText("Please connect to your device!");
+                if (adapter == null)
+                {
+                    SetFeedText("Please connect to your device!");
+                }
+                else if (adapter.IsEnabled)
+                {
+                    service.Write(FEED);
+                    SetFeedText("Last fed: " + DateTime.Now.ToString("dd/MM hh:mm"));
+                    service.Write(CLEAR);
+                }
             }
-            else if (adapter.IsEnabled)
+            else if (button.Text == "Search")
             {
-                service.Write(FEED);
-                SetFeedText("Last fed: " + DateTime.Now.ToString("dd/MM hh:mm"));
-                service.Write(CLEAR);
-            }                           
+                EditText editText = FindViewById<EditText>(Resource.Id.editText1);
+                
+                if (adapter != null)
+                {
+                    string SearchName = editText.Text;
+                    BluetoothDevice device = (from bd in adapter.BondedDevices
+                                              where bd.Name == SearchName
+                                              select bd).FirstOrDefault();
+                    if (device == null)
+                        SetBtText("Device not found");
+                    else
+                    {
+                        SetBtText("Device: " + device.Name + "found. Connecting...");
+                        service.Connect(device);
+                        if (service.GetState() == BluetoothFeedService.STATE_CONNECTED)
+                            SetBtText("Connected to: " + device.Name);
+                    }
+                }
+            }
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -74,26 +92,6 @@ namespace FeederApp
             }
         }
 
-        public void FindDevice()
-        {
-            EditText editText = FindViewById<EditText>(Resource.Id.editText1);
-            string searchName = editText.Text;
-            if (adapter != null)
-            {
-                BluetoothDevice device = (from bd in adapter.BondedDevices
-                                          where bd.Name == searchName
-                                          select bd).FirstOrDefault();
-                if (device == null)
-                    SetBtText("Device not found");
-                else
-                {
-                    Log.Info("MainActivit", "DEVICE FOUND!");
-                    SetBtText("Connected to: " + device.Name);
-                    service.Connect(device);
-                }
-            }
-        }
-
         public void SetBtText(string txt)
         {
             TextView txtBtLog = FindViewById<TextView>(Resource.Id.txtBtLog);
@@ -104,12 +102,6 @@ namespace FeederApp
         {
             TextView txtFeedLog = FindViewById<TextView>(Resource.Id.txtFeedLog);
             txtFeedLog.Text = txt;
-        }
-
-        protected override void OnStop()
-        {
-            base.OnStop();
-            service.Stop();
         }
     }
 }
