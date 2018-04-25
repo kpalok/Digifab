@@ -6,7 +6,7 @@ using Android.Content;
 using Android.Views;
 using System;
 using System.Linq;
-using Java.Util;
+using Android.Util;
 
 namespace FeederApp
 {   
@@ -27,7 +27,6 @@ namespace FeederApp
 
             if (adapter == null)
             {
-
                 SetBtText("Device doesn't support bluetooth!");
             }
             else if (!adapter.IsEnabled)
@@ -42,19 +41,7 @@ namespace FeederApp
         protected override void OnStart()
         {
             base.OnStart();
-            if (adapter != null)
-            {
-                BluetoothDevice device = (from bd in adapter.BondedDevices
-                                          where bd.Name == "JBL-Joona"
-                                          select bd).FirstOrDefault();
-                if (device == null)
-                    SetBtText("Device not found");
-                else
-                {
-                    SetBtText("Connected to: " + device.Name);
-                    service.Connect(device);
-                }
-            }
+            FindDevice();
         }
 
         [Java.Interop.Export("ButtonClick")]
@@ -87,6 +74,26 @@ namespace FeederApp
             }
         }
 
+        public void FindDevice()
+        {
+            EditText editText = FindViewById<EditText>(Resource.Id.editText1);
+            string searchName = editText.Text;
+            if (adapter != null)
+            {
+                BluetoothDevice device = (from bd in adapter.BondedDevices
+                                          where bd.Name == searchName
+                                          select bd).FirstOrDefault();
+                if (device == null)
+                    SetBtText("Device not found");
+                else
+                {
+                    Log.Info("MainActivit", "DEVICE FOUND!");
+                    SetBtText("Connected to: " + device.Name);
+                    service.Connect(device);
+                }
+            }
+        }
+
         public void SetBtText(string txt)
         {
             TextView txtBtLog = FindViewById<TextView>(Resource.Id.txtBtLog);
@@ -97,6 +104,12 @@ namespace FeederApp
         {
             TextView txtFeedLog = FindViewById<TextView>(Resource.Id.txtFeedLog);
             txtFeedLog.Text = txt;
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+            service.Stop();
         }
     }
 }

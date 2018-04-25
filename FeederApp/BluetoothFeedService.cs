@@ -2,7 +2,6 @@
 using System.IO;
 using System.Runtime.CompilerServices;
 using Android.Bluetooth;
-using Android.OS;
 using Android.Util;
 using Java.Lang;
 using Java.Util;
@@ -15,7 +14,6 @@ namespace FeederApp
         ConnectThread connectThread;
         ConnectedThread connectedThread;
         int state;
-
         public const int STATE_NONE = 0;
         public const int STATE_CONNECTING = 1;
         public const int STATE_CONNECTED = 2;
@@ -59,10 +57,9 @@ namespace FeederApp
                 connectedThread.Cancel();
                 connectedThread = null;
             }
-
             // Start the thread to connect with the given device
             connectThread = new ConnectThread(device, this);
-            connectThread.Start();
+            connectThread.Run();
         }
 
         [MethodImpl(MethodImplOptions.Synchronized)]
@@ -76,7 +73,7 @@ namespace FeederApp
             }
 
             connectedThread = new ConnectedThread(socket, this);
-            connectedThread.Start();
+            connectedThread.Run();
         }
 
         public void Write(byte[] @out)
@@ -110,11 +107,11 @@ namespace FeederApp
                 try
                 {
                     tmp = device.CreateRfcommSocketToServiceRecord(UUID.FromString("8eeca70a-b46c-4631-b89e-5fd0b11c0747"));
-
+                    Log.Info(TAG, "create() succeeded!");
                 }
                 catch (Java.IO.IOException e)
                 {
-                    Log.Error(TAG, "create() failed", e);
+                    Log.Error(TAG, "create() failed",e);
                 }
                 socket = tmp;
                 service.state = STATE_CONNECTING;
@@ -126,6 +123,7 @@ namespace FeederApp
                 try
                 {
                     socket.Connect();
+                    Log.Info(TAG, "Connect() succeeded!");
                 }
                 catch (Java.IO.IOException)
                 {
@@ -153,6 +151,7 @@ namespace FeederApp
                 try
                 {
                     socket.Close();
+                    Log.Info(TAG, "Close() succeeded!");
                 }
                 catch (Java.IO.IOException e)
                 {
@@ -179,6 +178,7 @@ namespace FeederApp
                 try
                 {
                     tmpIn = socket.InputStream;
+                    Log.Info(TAG, "tmp create succeeded!");
                 }
                 catch (Java.IO.IOException e)
                 {
@@ -187,6 +187,7 @@ namespace FeederApp
                 try
                 {
                     tmpOut = socket.OutputStream;
+                    Log.Info(TAG, "tmp create succeeded!");
                 }
                 catch (Java.IO.IOException e)
                 {
@@ -208,6 +209,7 @@ namespace FeederApp
                     try
                     {
                         bytes = inStream.Read(buffer, 0, buffer.Length);
+                        Log.Info(TAG, "Reading!");
                     }
                     catch (Java.IO.IOException e)
                     {
@@ -222,6 +224,7 @@ namespace FeederApp
                 try
                 {
                     outStream.Write(buffer, 0, buffer.Length);
+                    Log.Info(TAG, "Write succeeded!");
                 }
                 catch (Java.IO.IOException e)
                 {
@@ -237,7 +240,7 @@ namespace FeederApp
                 }
                 catch (Java.IO.IOException e)
                 {
-                    Log.Error(TAG, "close() of connect socket failed", e);
+                    Log.Error(TAG, "close() of connected socket failed", e);
                 }
             }
         }
