@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.CompilerServices;
 using Android.Bluetooth;
 using Android.OS;
@@ -43,6 +42,7 @@ namespace FeederApp
             state = STATE_NONE;
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public void Connect(BluetoothDevice device)
         {
             if (state == STATE_CONNECTING)
@@ -102,7 +102,7 @@ namespace FeederApp
             BluetoothSocket socket;
             BluetoothDevice device;
             BluetoothFeedService service;
-
+            
             public ConnectThread(BluetoothDevice device, BluetoothFeedService service)
             {
                 this.device = device;
@@ -110,9 +110,16 @@ namespace FeederApp
                 BluetoothSocket tmp = null;
                 ParcelUuid[] supportedUuids = device.GetUuids();
                 try
-                {
-                    tmp = device.CreateRfcommSocketToServiceRecord(supportedUuids[0].Uuid);
-                    Log.Info(TAG, "create() succeeded");
+                {   if (supportedUuids.Length > 0)
+                    {
+                        tmp = device.CreateInsecureRfcommSocketToServiceRecord(supportedUuids[0].Uuid);
+                        Log.Info(TAG, "create() succeeded");
+                    }
+                    else
+                    {
+                        tmp = device.CreateInsecureRfcommSocketToServiceRecord(UUID.FromString("00001101-0000-1000-8000-00805F9B34FB"));
+                        Log.Info(TAG, "create() succeeded");
+                    }
                 }
                 catch (Java.IO.IOException e)
                 {
@@ -136,7 +143,7 @@ namespace FeederApp
                     try
                     {
                         socket.Close();
-                        Log.Info(TAG, "Socket closed!");
+                        Log.Info(TAG, "Socket closed in connect.run()!");
                     }
                     catch (Java.IO.IOException e2)
                     {
@@ -206,22 +213,7 @@ namespace FeederApp
 
             public override void Run()
             {
-                byte[] buffer = new byte[1];
-                int bytes;
-
-                // Keep listening to the InputStream while connected
-                while (service.GetState() == STATE_CONNECTED)
-                {
-                    try
-                    {
-                        bytes = inStream.Read(buffer, 0, buffer.Length);
-                    }
-                    catch (Java.IO.IOException e)
-                    {
-                        Log.Error(TAG, "disconnected", e);
-                        break;
-                    }
-                }
+                // do nothing with instream
             }
 
             public void Write(byte[] buffer)
