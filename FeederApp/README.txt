@@ -1,1 +1,3 @@
-Source code for our application. Work in progress.
+Source code for our application.
+Development process has been rough due to no prior experience with C# or android development let alone bluetooth. Connection procedure has undergone many changes, but I settled with querying the host device for paired devices and retviewing the the wanted device via its name.
+The search and connection attempt is only made once every time the "Search" button is pressed. It would be nice to implement some saving features for the connection but I think I've wandered far enough from the cources main subject already. The communication is also really simple (only one byte) and hardcoded, because we only need information about a single pushbutton to the app.
