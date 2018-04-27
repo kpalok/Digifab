@@ -77,7 +77,6 @@ namespace FeederApp
             }
 
             connectedThread = new ConnectedThread(socket, this);
-            connectedThread.Run();
         }
 
         public void Write(byte[] @out)
@@ -109,8 +108,10 @@ namespace FeederApp
                 this.service = service;
                 BluetoothSocket tmp = null;
                 ParcelUuid[] supportedUuids = device.GetUuids();
+                // Try to connect 10 times because it doesn't always succeed rigth away.
                 try
-                {   if (supportedUuids.Length > 0)
+                {
+                    if (supportedUuids.Length > 0)
                     {
                         tmp = device.CreateInsecureRfcommSocketToServiceRecord(supportedUuids[0].Uuid);
                         Log.Info(TAG, "create() succeeded");
@@ -124,7 +125,7 @@ namespace FeederApp
                 catch (Java.IO.IOException e)
                 {
                     Log.Error(TAG, "create() failed", e);
-                }
+                }              
                 socket = tmp;
                 service.state = STATE_CONNECTING;
             }
@@ -213,7 +214,7 @@ namespace FeederApp
 
             public override void Run()
             {
-                // do nothing with instream
+                // We don't need instream in this app so no need to do anything.
             }
 
             public void Write(byte[] buffer)

@@ -89,7 +89,7 @@ namespace FeederApp
                         if (service.GetState() == BluetoothFeedService.STATE_CONNECTED)
                             SetBtText("Connected to: " + device.Name);
                         else
-                            SetBtText("Connecting failed.");
+                            SetBtText("Connection failed.");
                     }
                 }
             }
