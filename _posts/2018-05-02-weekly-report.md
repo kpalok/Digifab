@@ -6,4 +6,4 @@ title: "Week Six"
 
 The bluetooth application is now working:
 
-[Image missing](https://github.com/kpalok/blob/Digifab/gh-pages/Images/BluetoothDemo.gif)
+![Image missing](https://raw.githubusercontent.com/kpalok/Digifab/gh-pages/Images/BluetoothDemo.gif)
