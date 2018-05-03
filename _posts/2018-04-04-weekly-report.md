@@ -2,6 +2,8 @@
 title: "Week Two"
 ---
 
+[Home](https://kpalok.github.io/Digifab/)
+
 # Week Two
 
 We met up to design the example board for milling and to finish the introductory report and clarified our concept.
@@ -16,3 +18,5 @@ Most of my efforts went into learning how to customize our documentation website
 
 ### Ville:
 During the meeting I drew a few sketches of our design. Most of them are ideas how to implement the mechanism which serves the food into the bowl.
+
+[Week 1](https://kpalok.github.io/Digifab/2018/03/26/weekly-report.html) - [Week 3](https://kpalok.github.io/Digifab/2018/04/12/weekly-report.html)
