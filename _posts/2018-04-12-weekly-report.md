@@ -2,6 +2,8 @@
 title: "Week Three"
 ---
 
+[Home](https://kpalok.github.io/Digifab/)
+
 # Week Three
 
 ### Kalle:
@@ -18,3 +20,5 @@ I started my week by familiriazing myself with GitHub Pages and Jekyll in order 
 
 ### Juho:
 Did some box desings for laser cutting.
+
+[Week 2](https://kpalok.github.io/Digifab/2018/04/04/weekly-report.html) - [Week 4](https://kpalok.github.io/Digifab/2018/04/16/weekly-report.html)
