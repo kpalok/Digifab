@@ -1,11 +1,11 @@
 #include <Servo.h>
 
-int pos = 0;
+int pos = 120;
 int inByte = 0;
-Servo servo_6;
+Servo servo_9;
 
 void setup() {
-  servo_6.attach(6);
+  servo_9.attach(9);
   Serial.begin(9600);
 }
 
@@ -14,13 +14,16 @@ void loop() {
     inByte = Serial.read();
   }
   if (inByte > 200){
-    for (pos = 0; pos <= 45; pos+= 1){
-      servo_6.write(pos);
-      delay(15);
+    for (pos = 120; pos >= 45; pos-= 1){
+      servo_9.write(pos);
+      delay(5);
     }
-    for (pos = 45; pos >= 0; pos -= 1){
-      servo_6.write(pos);
-      delay(15);
+    for (pos = 45; pos <= 120; pos += 1){
+      if (pos == 45){
+        delay(1000);
+      }
+      servo_9.write(pos);
+      delay(5);
     }
   }
 }
