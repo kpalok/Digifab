@@ -20,7 +20,7 @@ void loop() {
     }
     for (pos = 45; pos <= 120; pos += 1){
       if (pos == 45){
-        delay(300);
+        delay(1000);
       }
       servo_6.write(pos);
       delay(5);
