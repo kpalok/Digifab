@@ -22,4 +22,5 @@ metal from another pin to the wrongly routed data pin.
 
 We laser cutted base box, door and other parts from MDF. Assembled the whole thing and got it working.
 
-[Week 7](https://kpalok.github.io/Digifab/2018/04/25/weekly-report.html)
+[Week 7](https://kpalok.github.io/Digifab/2018/04/25/weekly-report.html) - [Week 9](https://kpalok.github.io/Digifab/2018/05/07/summary-report.html)
+
