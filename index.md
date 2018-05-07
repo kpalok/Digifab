@@ -13,6 +13,7 @@ One of our members who owns a cat had an idea about an automated cat food dispen
 - [Week 6](_posts/2018-04-16-weekly-report.md)
 - [Week 7](_posts/2018-04-25-weekly-report.md)
 - [Week 8](_posts/2018-05-02-weekly-report.md)
+- [Week 9 Summary](_posts/2018-05-07-summary-report.md)
 
 ## Sketches
 ![Picture missing](https://raw.githubusercontent.com/kpalok/Digifab/gh-pages/Images/Sketch1.jpg "Scetch One")
