@@ -18,7 +18,7 @@ attempt was a failure but the second one did work although some of the lines wer
 mistake with the pin width and also the data pin from the servo was routed to wrong place. We fixed the issue by soldering a piece of 
 metal from another pin to the wrongly routed data pin.
 
-![Image missing](https://github.com/kpalok/Digifab/blob/gh-pages/Images/DoorDemo.gif)
+![Image missing](https://raw.githubusercontent.com/kpalok/Digifab/gh-pages/Images/DoorDemo.gif)
 
 
 
