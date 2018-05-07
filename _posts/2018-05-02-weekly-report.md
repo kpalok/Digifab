@@ -20,6 +20,6 @@ metal from another pin to the wrongly routed data pin.
 
 ![Image missing](https://raw.githubusercontent.com/kpalok/Digifab/gh-pages/Images/DoorDemo.gif)
 
-
+We laser cutted base box, door and other parts from MDF. Assembled the whole thing and got it working.
 
 [Week 7](https://kpalok.github.io/Digifab/2018/04/25/weekly-report.html)
