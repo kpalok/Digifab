@@ -38,3 +38,5 @@ All source files can be found in the [main branch](https://github.com/kpalok/Dig
 + Usage of equipment and machinery in FabLab
 
 The project demanded a lot of work but working continuously gave results. The most difficult part was probably learning to use all the design software. This is because none of the team members had any prior knowledge regarding the design or fabrication process needed to create the prototype. After this course, it's safe to say that we could confidently make a similar kind of project again.
+
+[Week 8](https://kpalok.github.io/Digifab/2018/05/02/weekly-report.html)
