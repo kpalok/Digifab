@@ -1,10 +1,10 @@
 ---
-title: "Week Six"
+title: "Week Eight"
 ---
 
 [Home](https://kpalok.github.io/Digifab/)
 
-# Week Six
+# Week Eight
 
 The bluetooth application is now working:
 
@@ -18,4 +18,4 @@ attempt was a failure but the second one did work although some of the lines wer
 mistake with the pin width and also the data pin from the servo was routed to wrong place. We fixed the issue by soldering a piece of 
 metal from another pin to the wrongly routed data pin.
 
-[Week 5](https://kpalok.github.io/Digifab/2018/04/25/weekly-report.html)
+[Week 7](https://kpalok.github.io/Digifab/2018/04/25/weekly-report.html)
