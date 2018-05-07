@@ -19,4 +19,17 @@ PCB was made by Joona, using Eagle and Roland SRM-20 mill.
 ### Software
 Software was written by Kalle, using Microsoft Visual Studio and Xamarin Forms for the app, and Arduino IDE for Arduino.
 
+The stages of development can be seen in our [diary report](https://kpalok.github.io/Digifab/2018/03/26/weekly-report.html).
+
 All source files can be found in the [main branch](https://github.com/kpalok/Digifab/tree/master) of our repository.
+
+### Lessons learned:
+
++ Usage of GitHub Pages and Git in general
++ Basic understanding of 3D modeling with Fusion 360 and the software used for 3D printing
++ Experience with Eagle application and PCB milling
++ How to cut parts using a laser cutter and Inkscape
++ Creating simple Android applications with Visual Studio and Xamarin Forms using C#
++ Basic Arduino programming
+
+Project demanded a lot of work but working continuously gave results and we got it done. The most difficult part was probably learning to use all the design software.
