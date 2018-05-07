@@ -21,6 +21,10 @@ Software was written by Kalle, using Microsoft Visual Studio and Xamarin Forms f
 
 The stages of development can be seen in our [diary report](https://kpalok.github.io/Digifab/2018/03/26/weekly-report.html).
 
+![Image missing](https://raw.githubusercontent.com/kpalok/Digifab/gh-pages/Images/WithFood.gif)
+
+*The final prototype in action*
+
 All source files can be found in the [main branch](https://github.com/kpalok/Digifab/tree/master) of our repository.
 
 ### Lessons learned:
@@ -31,5 +35,6 @@ All source files can be found in the [main branch](https://github.com/kpalok/Dig
 + How to cut parts using a laser cutter and Inkscape
 + Creating simple Android applications with Visual Studio and Xamarin Forms using C#
 + Basic Arduino programming
++ Usage of equipment and machinery in FabLab
 
-Project demanded a lot of work but working continuously gave results and we got it done. The most difficult part was probably learning to use all the design software.
+The project demanded a lot of work but working continuously gave results. The most difficult part was probably learning to use all the design software. This is because none of the team members had any prior knowledge regarding the design or fabrication process needed to create the prototype. After this course, it's safe to say that we could confidently make a similar kind of project again.
