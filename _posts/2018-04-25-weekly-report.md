@@ -1,10 +1,10 @@
 ---
-title: "Week Five"
+title: "Week Seven"
 ---
 
 [Home](https://kpalok.github.io/Digifab/)
 
-# Week Five
+# Week Seven
 
 We 3D printed the base of the container of our design. This is the final result with the plexiglass walls in place:
 
@@ -16,4 +16,4 @@ We finally got somewhere with the app after changing its functionality for a sim
 <img src="https://raw.githubusercontent.com/kpalok/Digifab/gh-pages/Images/Screenshot_20180502-113553.jpg" width="350">                   
 *The final UI with search function*
 
-[Week 4](https://kpalok.github.io/Digifab/2018/04/16/weekly-report.html) - [Week 6](https://kpalok.github.io/Digifab/2018/05/02/weekly-report.html)
+[Week 6](https://kpalok.github.io/Digifab/2018/04/16/weekly-report.html) - [Week 8](https://kpalok.github.io/Digifab/2018/05/02/weekly-report.html)
