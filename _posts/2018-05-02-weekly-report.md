@@ -20,4 +20,6 @@ metal from another pin to the wrongly routed data pin.
 
 ![Image missing](https://github.com/kpalok/Digifab/blob/gh-pages/Images/DoorDemo.gif)
 
+
+
 [Week 7](https://kpalok.github.io/Digifab/2018/04/25/weekly-report.html)
