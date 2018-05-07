@@ -7,7 +7,7 @@ One of our members who owns a cat had an idea about an automated cat food dispen
 
 ## Diary
 
-- [Week 1-3](_posts/2018-03-26-weekly-report.md)
+- [Weeks 1-3](_posts/2018-03-26-weekly-report.md)
 - [Week 4](_posts/2018-04-04-weekly-report.md)
 - [Week 5](_posts/2018-04-12-weekly-report.md)
 - [Week 6](_posts/2018-04-16-weekly-report.md)
