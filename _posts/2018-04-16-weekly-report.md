@@ -1,10 +1,10 @@
 ---
-title: "Week Four"
+title: "Week Six"
 ---
 
 [Home](https://kpalok.github.io/Digifab/)
 
-# Week Four
+# Week Six
 
 Our plan is to 3D print the container of our design. We exported the model of the container into an STL file and went to FabLab to preview it. The model turned out to be fine apart from the ridiculous printing time and cost. The model would have taken 15 hours to print and cost half a spool of filament. We shrank the model a bit but it was still too big. Finally we decided to use a combination of 3D printing and laser cutting to create the food container. We designed the bottom funnel of the container to be 3D printed, and laser cut the container walls from plexiglass. Here's the concept:
 
@@ -18,4 +18,4 @@ Here's the 3D model of the bottom part we will print next week:
 
 {% include containerBase.html %}
 
-[Week 3](https://kpalok.github.io/Digifab/2018/04/12/weekly-report.html) - [Week 5](https://kpalok.github.io/Digifab/2018/04/25/weekly-report.html)
+[Week 5](https://kpalok.github.io/Digifab/2018/04/12/weekly-report.html) - [Week 7](https://kpalok.github.io/Digifab/2018/04/25/weekly-report.html)
