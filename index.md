@@ -15,8 +15,8 @@ One of our members who owns a cat had an idea about an automated cat food dispen
 - [Week 8](_posts/2018-05-02-weekly-report.md)
 
 ## Sketches
-![Picture missing](https://raw.githubusercontent.com/kpalok/Digifab/master/Images/Sketch1.jpg "Scetch One")
-![Picture missing](https://raw.githubusercontent.com/kpalok/Digifab/master/Images/Sketch2.jpg "Scetch Two")
+![Picture missing](https://raw.githubusercontent.com/kpalok/Digifab/gh-pages/Images/Sketch1.jpg "Scetch One")
+![Picture missing](https://raw.githubusercontent.com/kpalok/Digifab/gh-pages/Images/Sketch2.jpg "Scetch Two")
 
 ## Bill of materials
 
