@@ -1,10 +1,10 @@
 ---
-title: "Week Three"
+title: "Week Five"
 ---
 
 [Home](https://kpalok.github.io/Digifab/)
 
-# Week Three
+# Week Five
 
 ### Kalle:
 I started to develop an Android application that could communicate with the arduino via the HC-05 Bluetooth module and control the motor of our prototype. I decided to develop the app whith Visual studio and Xamarin forms, because I'm interested in getting familiar with Visual studio. Source code for the app can be found [here.](https://github.com/kpalok/Digifab/tree/master/FeederApp) Early example of user interface below.
@@ -21,4 +21,4 @@ I started my week by familiriazing myself with GitHub Pages and Jekyll in order 
 ### Juho:
 Did some box desings for laser cutting.
 
-[Week 2](https://kpalok.github.io/Digifab/2018/04/04/weekly-report.html) - [Week 4](https://kpalok.github.io/Digifab/2018/04/16/weekly-report.html)
+[Week 4](https://kpalok.github.io/Digifab/2018/04/04/weekly-report.html) - [Week 6](https://kpalok.github.io/Digifab/2018/04/16/weekly-report.html)
