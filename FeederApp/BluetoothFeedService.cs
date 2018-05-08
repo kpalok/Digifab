@@ -10,7 +10,6 @@ namespace FeederApp
 {
     class BluetoothFeedService
     {
-        // Class has exessive logging for debugging with physical device.
         const string TAG = "BluetoothFeedService";
         ConnectThread connectThread;
         ConnectedThread connectedThread;
@@ -60,7 +59,6 @@ namespace FeederApp
                 connectedThread.Cancel();
                 connectedThread = null;
             }
-
             // Start the thread to connect with the given device
             connectThread = new ConnectThread(device, this);
             connectThread.Run();
@@ -75,7 +73,6 @@ namespace FeederApp
                 connectThread.Cancel();
                 connectThread = null;
             }
-
             connectedThread = new ConnectedThread(socket, this);
         }
 
@@ -108,18 +105,15 @@ namespace FeederApp
                 this.service = service;
                 BluetoothSocket tmp = null;
                 ParcelUuid[] supportedUuids = device.GetUuids();
-                // Try to connect 10 times because it doesn't always succeed rigth away.
                 try
                 {
                     if (supportedUuids.Length > 0)
                     {
                         tmp = device.CreateInsecureRfcommSocketToServiceRecord(supportedUuids[0].Uuid);
-                        Log.Info(TAG, "create() succeeded");
                     }
                     else
                     {
                         tmp = device.CreateInsecureRfcommSocketToServiceRecord(UUID.FromString("00001101-0000-1000-8000-00805F9B34FB"));
-                        Log.Info(TAG, "create() succeeded");
                     }
                 }
                 catch (Java.IO.IOException e)
@@ -136,7 +130,6 @@ namespace FeederApp
                 try
                 {
                     socket.Connect();
-                    Log.Info(TAG, "Connect() succeeded");
                 }
                 catch (Java.IO.IOException)
                 {
@@ -165,7 +158,6 @@ namespace FeederApp
                 try
                 {
                     socket.Close();
-                    Log.Info(TAG, "Socket closed");
                 }
                 catch (Java.IO.IOException e)
                 {
@@ -192,7 +184,6 @@ namespace FeederApp
                 try
                 {
                     tmpIn = socket.InputStream;
-                    Log.Info(TAG, "tmpIn created");
                 }
                 catch (Java.IO.IOException e)
                 {
@@ -201,7 +192,6 @@ namespace FeederApp
                 try
                 {
                     tmpOut = socket.OutputStream;
-                    Log.Info(TAG, "tmpOut created");
                 }
                 catch (Java.IO.IOException e)
                 {
@@ -222,7 +212,6 @@ namespace FeederApp
                 try
                 {
                     outStream.Write(buffer, 0, buffer.Length);
-                    Log.Info(TAG, "Write() succeeded");
                 }
                 catch (Java.IO.IOException e)
                 {
@@ -235,7 +224,6 @@ namespace FeederApp
                 try
                 {
                     socket.Close();
-                    Log.Info(TAG, "Socket closed");
                 }
                 catch (Java.IO.IOException e)
                 {
