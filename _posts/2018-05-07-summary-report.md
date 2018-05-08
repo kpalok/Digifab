@@ -26,6 +26,7 @@ The stages of development can be seen in our [diary report](https://kpalok.githu
 *The final prototype in action*
 
 All source files can be found in the [main branch](https://github.com/kpalok/Digifab/tree/master) of our repository.
+We used this webpage for our representation because of all the pictures and gifs we have here.
 
 ### Lessons learned:
 
